@@ -1,0 +1,110 @@
+body {
+  background-image: linear-gradient(
+    -225deg,
+    #7085b6 0%,
+    #87a7d9 50%,
+    #def3f8 100%
+  );
+}
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+h2 {
+  font-size: 25px;
+}
+hr {
+  background: #ffffff;
+  border-radius: 3px;
+  border-style: solid;
+  color: #ffffff;
+  height: 2px;
+}
+h3 {
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: bold;
+}
+i {
+  font-size: 30px;
+}
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+button {
+  margin: 20px auto;
+  border: 3px solid #ffffff;
+  background: none;
+  color: #ffffff;
+  border-radius: 2px;
+}
+button:hover {
+  color: #809cce;
+  background: #ffffff;
+}
+.container {
+  text-align: center;
+  border-left: 4px solid #ffffff;
+  border-right: 4px solid #ffffff;
+  color: #ffffff;
+  display: block;
+  margin: 40px auto;
+  max-width: 60%;
+  font-family: "Roboto Mono", monospace;
+}
+.search {
+  border-bottom: 2px solid #ffffff;
+  margin: 0 auto;
+  max-width: 225px;
+  padding-bottom: 10px;
+  position: relative;
+}
+.input-bar {
+  border: none;
+  background: none;
+  color: #ffffff;
+  width: 119px;
+}
+.input-bar::placeholder {
+  color: #ffffff;
+}
+.input-bar:focus {
+  outline: none;
+}
+.search-button {
+  border: none;
+  display: inline;
+  background: none;
+}
+.search-button:focus {
+  outline: none;
+  border-left: 2px solid #ffffff;
+}
+.current-city {
+  margin-top: 30px;
+}
+.current-weather,
+.weekly-weather {
+  margin: 50px auto;
+}
+.current-weather i {
+  font-size: 100px;
+  color: #ffffff;
+}
+.current-weather p {
+  font-size: 25px;
+}
+.current-weather hr {
+  max-width: 150px;
+}
+.weekly-weather h2 {
+  text-align: left;
+}
+.weekly-weather hr {
+  margin: 0;
+  width: 150px;
+}
+.col-sm {
+  padding-bottom: 20px;
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/4640053605.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="search-input">
+        <form class="search">
+          <input type="text" placeholder="Search" class="input-bar" />
+          <input type="submit" value="🔍" class="search-button" />
+        </form>
+        <button id="current-button">Current Location</button>
+      </div>
+      <div class="current-city">
+        <h2 id="date-time"></h2>
+        <h2>in</h2>
+        <h1 id="city"></h1>
+        <div class="current-weather">
+          <div class="row">
+            <div class="col-sm">
+              <i class="fas fa-cloud-sun"></i>
+            </div>
+            <div class="col-sm">
+              <p class="temperature">
+                <span id="temp-display"> </span>
+                <a id="celcius" href="#">°C</a>|
+                <a id="farenheit" href="#">°F</a>
+              </p>
+              <hr />
+              <p id="weather-description"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row current-info">
+        <div class="col-sm">
+          <h3>Humidity</h3>
+          <hr />
+          <p>
+            <span id="humidity"> </span>
+            %
+          </p>
+        </div>
+        <div class="col-sm">
+          <h3>Visibility</h3>
+          <hr />
+          <p>
+            <span id="visibility"> </span>
+            km
+          </p>
+        </div>
+        <div class="col-sm">
+          <h3>Wind</h3>
+          <hr />
+          <p>
+            <span id="wind"> </span>
+            km/h
+          </p>
+        </div>
+        <div class="col-sm">
+          <h3>Pressure</h3>
+          <hr />
+          <p>
+            <span id="pressure"> </span>
+            hPa
+          </p>
+        </div>
+        <div class="col-sm">
+          <h3>Clouds</h3>
+          <hr />
+          <p>
+            <span id="clouds"> </span>
+            %
+          </p>
+        </div>
+      </div>
+
+      <div class="weekly-weather">
+        <h2>Weekly</h2>
+        <hr />
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <p class="weekday">MON</p>
+          <hr />
+          <p class="weather-emoji">
+            <i class="fas fa-cloud-sun"></i>
+          </p>
+          <p class="temperature">17°C</p>
+        </div>
+        <div class="col-sm">
+          <p class="weekday">TUE</p>
+          <hr />
+          <p class="weather-emoji">
+            <i class="fas fa-cloud-sun"></i>
+          </p>
+          <p class="temperature">16°C</p>
+        </div>
+        <div class="col-sm">
+          <p class="weekday">WED</p>
+          <hr />
+          <p class="weather-emoji">
+            <i class="fas fa-cloud-showers-heavy"></i>
+          </p>
+          <p class="temperature">11°C</p>
+        </div>
+        <div class="col-sm">
+          <p class="weekday">THU</p>
+          <hr />
+          <p class="weather-emoji">
+            <i class="fas fa-cloud-showers-heavy"></i>
+          </p>
+          <p class="temperature">10°C</p>
+        </div>
+        <div class="col-sm">
+          <p class="weekday">FRI</p>
+          <hr />
+          <p class="weather-emoji">
+            <i class="fas fa-cloud-sun"></i>
+          </p>
+          <p class="temperature">16°C</p>
+        </div>
+        <div class="col-sm">
+          <p class="weekday">SAT</p>
+          <hr />
+          <p class="weather-emoji">
+            <i class="fas fa-sun"></i>
+          </p>
+          <p class="temperature">19°C</p>
+        </div>
+        <div class="col-sm">
+          <p class="weekday">SUN</p>
+          <hr />
+          <p class="weather-emoji">
+            <i class="fas fa-sun"></i>
+          </p>
+          <p class="temperature">20°C</p>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
