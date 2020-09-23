@@ -37,25 +37,9 @@ function currentDateTime() {
   let dateTime = document.querySelector("#date-time");
   dateTime.innerHTML = `${day} ${date} ${month} ${hours}:${minutes}`;
 }
-function tempToFarenheit(event) {
-  event.preventDefault();
-  let tempDisplay = document.querySelector("#temp-display");
-  let temp = tempDisplay.innerHTML;
-  if (temp < 45) {
-    let tempInFarenheit = Math.round((temp * 9) / 5 + 32);
-    tempDisplay.innerHTML = `${tempInFarenheit}`;
-  }
-}
-function tempToCelcius(event) {
-  event.preventDefault();
-  let tempDisplay = document.querySelector("#temp-display");
-  let temp = tempDisplay.innerHTML;
-  if (temp > 45) {
-    let tempInCelcius = Math.round(((temp - 32) * 5) / 9);
-    tempDisplay.innerHTML = `${tempInCelcius}`;
-  }
-}
+
 function showWeather(response) {
+  celciusTemp = response.data.main.temp;
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temp-display").innerHTML = Math.round(
     response.data.main.temp
@@ -100,13 +84,29 @@ function getCurrentLocation(event) {
   event.preventDefault;
   navigator.geolocation.getCurrentPosition(getCoords);
 }
+function tempToFarenheit(event) {
+  event.preventDefault();
+  let tempDisplay = document.querySelector("#temp-display");
+  celciusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  let tempInFarenheit = Math.round((celciusTemp * 9) / 5 + 32);
+  tempDisplay.innerHTML = tempInFarenheit;
+}
+function tempToCelcius(event) {
+  event.preventDefault();
+  let tempDisplay = document.querySelector("#temp-display");
+  farenheitLink.classList.remove("active");
+  celciusLink.classList.add("active");
+  tempDisplay.innerHTML = Math.round(celciusTemp);
+}
 currentDateTime();
 search("New York");
 let searchForm = document.querySelector(".search");
 searchForm.addEventListener("submit", getCurrentData);
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentLocation);
-let farenheit = document.querySelector("#farenheit");
-farenheit.addEventListener("click", tempToFarenheit);
-let celcius = document.querySelector("#celcius");
-celcius.addEventListener("click", tempToCelcius);
+let celciusTemp = null;
+let farenheitLink = document.querySelector("#farenheit");
+farenheitLink.addEventListener("click", tempToFarenheit);
+let celciusLink = document.querySelector("#celcius");
+celciusLink.addEventListener("click", tempToCelcius);

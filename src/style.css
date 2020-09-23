@@ -95,6 +95,13 @@ button:hover {
 .current-weather p {
   font-size: 25px;
 }
+.temperature .active {
+  cursor: default;
+}
+.temperature .active:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
 .current-weather hr {
   max-width: 150px;
 }
