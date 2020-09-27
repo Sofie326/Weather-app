@@ -1,3 +1,15 @@
+function formatHours(timestamp) {
+  let now = new Date(timestamp);
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
 function currentDateTime() {
   let now = new Date();
   let days = [
@@ -26,16 +38,8 @@ function currentDateTime() {
     "December",
   ];
   let month = months[now.getMonth()];
-  let hours = now.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = now.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
   let dateTime = document.querySelector("#date-time");
-  dateTime.innerHTML = `${day} ${date} ${month} ${hours}:${minutes}`;
+  dateTime.innerHTML = `${day} ${date} ${month} ${formatHours(now)}`;
 }
 
 function showWeather(response) {
@@ -60,11 +64,32 @@ function showWeather(response) {
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
 }
+function showForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+      <div class="col-sm">
+        <p class="time">${formatHours(forecast.dt * 1000)}</p>
+        <hr />
+        <p class="weather-emoji">
+          <img src="http://openweathermap.org/img/wn/${
+            forecast.weather[0].icon
+          }@2x.png" alt="${forecast.weather[0].description}">
+        </p>
+        <p class="temperature">${Math.round(forecast.main.temp)}°C</p>
+      </div>`;
+  }
+}
 function search(city) {
   let apiKey = "fc119741c476f1c5aa5601dcd5623127";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeather);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${units}`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showForecast);
 }
 function getCurrentData(event) {
   event.preventDefault();
@@ -103,8 +128,10 @@ currentDateTime();
 search("New York");
 let searchForm = document.querySelector(".search");
 searchForm.addEventListener("submit", getCurrentData);
+
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentLocation);
+
 let celciusTemp = null;
 let farenheitLink = document.querySelector("#farenheit");
 farenheitLink.addEventListener("click", tempToFarenheit);
