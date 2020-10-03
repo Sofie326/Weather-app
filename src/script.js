@@ -111,19 +111,30 @@ function getCurrentLocation(event) {
 }
 function tempToFarenheit(event) {
   event.preventDefault();
+  let unitsDisplay = document.querySelector("#temp-units");
+  unitsDisplay.innerHTML = `<a id="farenheit" href="#"class="active">
+        °F</a>| <a id="celcius" href="#">
+        °C
+      </a>`;
   let tempDisplay = document.querySelector("#temp-display");
-  celciusLink.classList.remove("active");
-  farenheitLink.classList.add("active");
   let tempInFarenheit = Math.round((celciusTemp * 9) / 5 + 32);
   tempDisplay.innerHTML = tempInFarenheit;
+  let celciusLink = document.querySelector("#celcius");
+  celciusLink.addEventListener("click", tempToCelcius);
 }
 function tempToCelcius(event) {
   event.preventDefault();
+  let unitsDisplay = document.querySelector("#temp-units");
+  unitsDisplay.innerHTML = `<a id="celcius" href="#" class="active">
+        °C</a>| <a id="farenheit" href="#">
+        °F
+      </a>`;
   let tempDisplay = document.querySelector("#temp-display");
-  farenheitLink.classList.remove("active");
-  celciusLink.classList.add("active");
   tempDisplay.innerHTML = Math.round(celciusTemp);
+  let farenheitLink = document.querySelector("#farenheit");
+  farenheitLink.addEventListener("click", tempToFarenheit);
 }
+let celciusTemp = null;
 currentDateTime();
 search("New York");
 let searchForm = document.querySelector(".search");
@@ -132,8 +143,5 @@ searchForm.addEventListener("submit", getCurrentData);
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
-let celciusTemp = null;
 let farenheitLink = document.querySelector("#farenheit");
 farenheitLink.addEventListener("click", tempToFarenheit);
-let celciusLink = document.querySelector("#celcius");
-celciusLink.addEventListener("click", tempToCelcius);
