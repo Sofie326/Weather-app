@@ -11,7 +11,7 @@ h1 {
   font-weight: bold;
 }
 h2 {
-  font-size: 25px;
+  font-size: 20px;
 }
 hr {
   background: #ffffff;
@@ -57,7 +57,7 @@ button:hover {
   border-bottom: 2px solid #ffffff;
   margin: 0 auto;
   max-width: 225px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   position: relative;
 }
 .input-bar {
@@ -82,18 +82,18 @@ button:hover {
   border-left: 2px solid #ffffff;
 }
 .current-city {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .current-weather,
 .weekly-weather {
-  margin: 50px auto;
+  margin: 15px auto;
 }
 .current-weather i {
   font-size: 100px;
   color: #ffffff;
 }
 .current-weather p {
-  font-size: 25px;
+  font-size: 20px;
 }
 .temperature .active {
   cursor: default;
@@ -112,6 +112,12 @@ button:hover {
   margin: 0;
   width: 150px;
 }
+.forecast p {
+  margin: 0;
+}
 .col-sm {
   padding-bottom: 20px;
+}
+.link {
+  margin-top: 5px;
 }
