@@ -22,8 +22,8 @@ hr {
 }
 h3 {
   font-size: 15px;
-  line-height: 25px;
   font-weight: bold;
+  line-height: 25px;
 }
 i {
   font-size: 30px;
@@ -33,26 +33,26 @@ a {
   text-decoration: none;
 }
 button {
-  margin: 10px auto;
-  border: 3px solid #ffffff;
   background: none;
-  color: #ffffff;
+  border: 3px solid #ffffff;
   border-radius: 2px;
+  color: #ffffff;
   font-size: 14px;
+  margin: 10px auto;
 }
 button:hover {
-  color: #809cce;
   background: #ffffff;
+  color: #809cce;
 }
 .container {
-  text-align: center;
   border-left: 4px solid #ffffff;
   border-right: 4px solid #ffffff;
   color: #ffffff;
   display: block;
+  font-family: "Roboto Mono", monospace;
   margin: 40px auto;
   max-width: 60%;
-  font-family: "Roboto Mono", monospace;
+  text-align: center;
 }
 .search {
   border-bottom: 2px solid #ffffff;
@@ -62,11 +62,11 @@ button:hover {
   position: relative;
 }
 .input-bar {
-  border: none;
   background: none;
+  border: none;
   color: #ffffff;
-  width: 165px;
   font-size: 14px;
+  width: 165px;
 }
 .input-bar::placeholder {
   color: #ffffff;
@@ -75,13 +75,13 @@ button:hover {
   outline: none;
 }
 .search-button {
+  background: none;
   border: none;
   display: inline;
-  background: none;
 }
 .search-button:focus {
-  outline: none;
   border-left: 2px solid #ffffff;
+  outline: none;
 }
 .current-city {
   margin-top: 20px;
@@ -91,8 +91,8 @@ button:hover {
   margin: 15px auto;
 }
 .current-weather i {
-  font-size: 100px;
   color: #ffffff;
+  font-size: 100px;
 }
 .current-weather p {
   font-size: 20px;
