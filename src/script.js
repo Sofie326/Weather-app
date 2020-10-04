@@ -63,6 +63,7 @@ function showWeather(response) {
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
+  currentDateTime();
 }
 function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
@@ -135,7 +136,6 @@ function tempToCelcius(event) {
   farenheitLink.addEventListener("click", tempToFarenheit);
 }
 let celciusTemp = null;
-currentDateTime();
 search("New York");
 let searchForm = document.querySelector(".search");
 searchForm.addEventListener("submit", getCurrentData);
