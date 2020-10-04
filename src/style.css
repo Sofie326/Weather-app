@@ -33,11 +33,12 @@ a {
   text-decoration: none;
 }
 button {
-  margin: 20px auto;
+  margin: 10px auto;
   border: 3px solid #ffffff;
   background: none;
   color: #ffffff;
   border-radius: 2px;
+  font-size: 14px;
 }
 button:hover {
   color: #809cce;
@@ -64,7 +65,8 @@ button:hover {
   border: none;
   background: none;
   color: #ffffff;
-  width: 119px;
+  width: 165px;
+  font-size: 14px;
 }
 .input-bar::placeholder {
   color: #ffffff;
@@ -82,7 +84,7 @@ button:hover {
   border-left: 2px solid #ffffff;
 }
 .current-city {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .current-weather,
 .weekly-weather {
