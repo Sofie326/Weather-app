@@ -99,12 +99,15 @@ function getCurrentData(event) {
   search(city);
 }
 function getCoords(position) {
-  let lat = Math.round(position.coords.latitude);
-  let lon = Math.round(position.coords.longitude);
+  console.log(position);
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
   let units = "metric";
   let apiKey = "fc119741c476f1c5aa5601dcd5623127";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeather);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showForecast);
 }
 function getCurrentLocation(event) {
   event.preventDefault;
